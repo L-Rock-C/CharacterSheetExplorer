@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ViewCharacterListController">
+   <children>
+      <TableView fx:id="charactersList" layoutX="250.0" layoutY="110.0" prefHeight="400.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="nameColumm" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="classColumm" prefWidth="75.0" text="Class" />
+            <TableColumn fx:id="levelColumm" prefWidth="75.0" text="Level" />
+            <TableColumn fx:id="raceColumm" prefWidth="75.0" text="Race" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="backBtn" layoutX="490.0" layoutY="556.0" mnemonicParsing="false" onAction="#gotoMenu" text="Back" />
+      <Button fx:id="backBtn1" layoutX="567.0" layoutY="556.0" mnemonicParsing="false" onAction="#viewCharacterSheet" text="View" />
+   </children>
+</AnchorPane>

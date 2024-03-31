@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateCharacterController">
+   <children>
+      <Button fx:id="saveBtn" layoutX="571.0" layoutY="581.0" mnemonicParsing="false" onAction="#saveCharacterSheet" text="Save" />
+      <TextField fx:id="nameField" layoutX="14.0" layoutY="45.0" promptText="Name" />
+      <TextField fx:id="characterClassField" layoutX="14.0" layoutY="83.0" promptText="Class" />
+      <TextField fx:id="raceField" layoutX="14.0" layoutY="120.0" promptText="Race" />
+      <TextField fx:id="levelField" layoutX="14.0" layoutY="158.0" prefHeight="25.0" prefWidth="83.0" promptText="Level" />
+      <TextField fx:id="strenghtField" layoutX="14.0" layoutY="196.0" prefHeight="25.0" prefWidth="83.0" promptText="Strenght" />
+      <TextField fx:id="dexterityField" layoutX="14.0" layoutY="233.0" prefHeight="25.0" prefWidth="83.0" promptText="Dexterity" />
+      <TextField fx:id="constitutionField" layoutX="14.0" layoutY="269.0" prefHeight="25.0" prefWidth="83.0" promptText="Constitution" />
+      <TextField fx:id="intelligenceField" layoutX="14.0" layoutY="306.0" prefHeight="25.0" prefWidth="83.0" promptText="Intelligence" />
+      <TextField fx:id="wisdomField" layoutX="14.0" layoutY="342.0" prefHeight="25.0" prefWidth="83.0" promptText="Wisdom" />
+      <TextField fx:id="charismaField" layoutX="14.0" layoutY="379.0" prefHeight="25.0" prefWidth="83.0" promptText="Charisma" />
+      <Button fx:id="backBtn" layoutX="489.0" layoutY="581.0" mnemonicParsing="false" onAction="#gotoMenu" text="Back" />
+   </children>
+</AnchorPane>
