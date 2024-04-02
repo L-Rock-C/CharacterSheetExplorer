@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -42,62 +43,283 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="strenghtModField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="151.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+      <Label fx:id="strenghtModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="157.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="12.0" />
-         </font>
-      </TextField>
+         </font></Label>
       <TextField fx:id="dexterityField" alignment="CENTER" layoutX="36.0" layoutY="210.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="dexterityModField" alignment="CENTER" editable="false" layoutX="36.0" layoutY="239.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+      <Label fx:id="dexterityModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="245.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </TextField>
+      </Label>
       <TextField fx:id="constitutionField" alignment="CENTER" layoutX="36.0" layoutY="297.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="constitutionModField" alignment="CENTER" editable="false" layoutX="36.0" layoutY="326.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+      <Label fx:id="constitutionModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="332.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </TextField>
+      </Label>
       <TextField fx:id="intelligenceField" alignment="CENTER" layoutX="37.0" layoutY="385.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="intelligenceModField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="414.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+      <Label fx:id="intelligenceModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="419.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </TextField>
+      </Label>
       <TextField fx:id="wisdomField" alignment="CENTER" layoutX="37.0" layoutY="471.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="wisdomModField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="500.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+      <Label fx:id="wisdomModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="506.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </TextField>
+      </Label>
       <TextField fx:id="charismaField" alignment="CENTER" layoutX="37.0" layoutY="559.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="charismaModField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="588.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+      <Label fx:id="charismaModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="594.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
+      </Label>
+      <RadioButton fx:id="inspirationRadio" layoutX="143.0" layoutY="118.0" mnemonicParsing="false" />
+      <TextField fx:id="pbField" alignment="CENTER" layoutX="126.0" layoutY="154.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <RadioButton fx:id="strSaveRadio" layoutX="206.0" layoutY="208.0" mnemonicParsing="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="dexSaveRadio" layoutX="206.0" layoutY="224.0" mnemonicParsing="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="conSaveRadio" layoutX="206.0" layoutY="240.0" mnemonicParsing="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="intSaveRadio" layoutX="206.0" layoutY="256.0" mnemonicParsing="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="wisSaveRadio" layoutX="206.0" layoutY="272.0" mnemonicParsing="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="chaSaveRadio" layoutX="206.0" layoutY="287.0" mnemonicParsing="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="acrobaticsRadio" layoutX="129.0" layoutY="332.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="animalHandlingRadio" layoutX="129.0" layoutY="347.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="arcanaRadio" layoutX="129.0" layoutY="362.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="athleticsRadio" layoutX="129.0" layoutY="377.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="deceptionRadio" layoutX="129.0" layoutY="393.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="historyRadio" layoutX="129.0" layoutY="409.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="insightRadio" layoutX="129.0" layoutY="425.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="intimidationRadio" layoutX="129.0" layoutY="441.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="investigationRadio" layoutX="129.0" layoutY="456.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="medicineRadio" layoutX="129.0" layoutY="472.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="natureRadio" layoutX="129.0" layoutY="488.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="perceptionRadio" layoutX="129.0" layoutY="503.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="perfomanceRadio" layoutX="129.0" layoutY="520.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="persuasionRadio" layoutX="129.0" layoutY="535.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="religionRadio" layoutX="129.0" layoutY="551.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="sleightOfHandsRadio" layoutX="129.0" layoutY="567.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="stealthRadio" layoutX="129.0" layoutY="582.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="survivalRadio" layoutX="129.0" layoutY="597.0" mnemonicParsing="false">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </RadioButton>
+      <TextField fx:id="armorClassField" alignment="CENTER" layoutX="320.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="speedField" alignment="CENTER" layoutX="389.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="initiativeField" alignment="CENTER" layoutX="469.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="maxHPField" alignment="CENTER" layoutX="317.0" layoutY="59.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="currentHPField" alignment="CENTER" layoutX="386.0" layoutY="77.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tempHPField" alignment="CENTER" layoutX="317.0" layoutY="97.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="currentHitDiceField" alignment="CENTER" layoutX="469.0" layoutY="61.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="totalHitDiceField" alignment="CENTER" layoutX="469.0" layoutY="97.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="1034.0" layoutY="369.0" mnemonicParsing="false" onAction="#addNewEquipment" text="+" />
+      <Button layoutX="1034.0" layoutY="290.0" mnemonicParsing="false" onAction="#removeSelectedItem" prefHeight="25.0" prefWidth="25.0" text="-" />
+      <TableView fx:id="equipmentTable" editable="true" layoutX="665.0" layoutY="222.0" prefHeight="148.0" prefWidth="363.0" style="-fx-background-color: transparent;">
+        <columns>
+          <TableColumn fx:id="itemColumm" prefWidth="288.0" style="-fx-background-color: transparent;" text="Item" />
+          <TableColumn fx:id="quantityColumm" prefWidth="74.0" style="-fx-background-color: transparent;" text="Quantity" />
+        </columns>
+      </TableView>
+      <TextField fx:id="itemNameField" layoutX="679.0" layoutY="371.0" prefHeight="25.0" prefWidth="274.0" promptText="Item name" />
+      <TextField fx:id="itemQuantityField" layoutX="961.0" layoutY="370.0" prefHeight="25.0" prefWidth="64.0" promptText="Quantity" />
+      <TextArea fx:id="notesField" layoutX="581.0" layoutY="425.0" prefHeight="185.0" prefWidth="485.0" style="-fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="10.0" />
+         </font>
+      </TextArea>
+      <TextField fx:id="abilitySpellField" alignment="CENTER" layoutX="313.0" layoutY="191.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="spellDCField" alignment="CENTER" layoutX="389.0" layoutY="191.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="attackSpellField" alignment="CENTER" layoutX="466.0" layoutY="191.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="cpField" alignment="CENTER" layoutX="593.0" layoutY="226.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="spField" alignment="CENTER" layoutX="593.0" layoutY="260.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="epField" alignment="CENTER" layoutX="593.0" layoutY="294.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="gpField" alignment="CENTER" layoutX="593.0" layoutY="328.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ppField" alignment="CENTER" layoutX="593.0" layoutY="360.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
       </TextField>
       <Button fx:id="backBtn" layoutX="487.0" layoutY="622.0" mnemonicParsing="false" onAction="#gotoViewCharacterSheets" text="Back" />
-      <Button layoutX="576.0" layoutY="622.0" mnemonicParsing="false" text="Save" />
+      <Button fx:id="saveBtn" layoutX="576.0" layoutY="622.0" mnemonicParsing="false" onAction="#updateCharacterSheet" text="Save" />
+      <Label fx:id="idField" layoutX="285.0" layoutY="15.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

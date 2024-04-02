@@ -21,7 +21,7 @@ public class MenuController {
 
     public void gotoCreateCharacterSheet(ActionEvent event) throws IOException
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/Teste.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/CreateCharacter.fxml"));
         root = loader.load();
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

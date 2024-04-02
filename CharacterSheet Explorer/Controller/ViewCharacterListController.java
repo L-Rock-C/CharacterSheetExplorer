@@ -7,8 +7,6 @@ import java.util.ResourceBundle;
 
 import Model.CharacterSheet;
 import Model.FileAccess;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,22 +24,16 @@ public class ViewCharacterListController implements Initializable{
     FileAccess fileAccess = new FileAccess();
     ArrayList<CharacterSheet> characterSheets;
 
+    @SuppressWarnings("rawtypes")
     @FXML private TableView charactersList = new TableView<CharacterSheet>();
+    @SuppressWarnings("rawtypes")
     @FXML private TableColumn nameColumm = new TableColumn<CharacterSheet, String>("Name");
+    @SuppressWarnings("rawtypes")
     @FXML private TableColumn characterClassColumm = new TableColumn<CharacterSheet, String>("Class");
-    @FXML private TableColumn levelColumm = new TableColumn<CharacterSheet, Integer>("Level");
+    @SuppressWarnings("rawtypes")
+    @FXML private TableColumn xpColumm = new TableColumn<CharacterSheet, Integer>("Experience");
+    @SuppressWarnings("rawtypes")
     @FXML private TableColumn raceColumm = new TableColumn<CharacterSheet, String>("Race");
-
-    public void gotoMenu(ActionEvent event) throws IOException
-    {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/Menu.fxml"));
-        root = loader.load();
-
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.getScene().setRoot(root);
-        stage.setTitle("Character Sheet Explorer");
-        stage.show();
-    }
 
     @SuppressWarnings("unchecked")
     @Override
@@ -49,11 +41,11 @@ public class ViewCharacterListController implements Initializable{
 
         nameColumm.setCellValueFactory(new PropertyValueFactory<CharacterSheet, String>("name"));
         characterClassColumm.setCellValueFactory(new PropertyValueFactory<CharacterSheet, String>("characterClass"));
-        levelColumm.setCellValueFactory(new PropertyValueFactory<CharacterSheet, Integer>("level"));
+        xpColumm.setCellValueFactory(new PropertyValueFactory<CharacterSheet, Integer>("xp"));
         raceColumm.setCellValueFactory(new PropertyValueFactory<CharacterSheet, String>("race"));
 
         try {
-            charactersList.getItems().addAll(fileAccess.caracterSheetReader("sheets.txt"));
+            charactersList.getItems().addAll(fileAccess.caracterSheetReader("Sheets/sheets.txt"));
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -62,7 +54,7 @@ public class ViewCharacterListController implements Initializable{
         charactersList.getColumns().clear();
         charactersList.getColumns().add(nameColumm);
         charactersList.getColumns().add(characterClassColumm);
-        charactersList.getColumns().add(levelColumm);
+        charactersList.getColumns().add(xpColumm);
         charactersList.getColumns().add(raceColumm);
 
     }
@@ -81,6 +73,17 @@ public class ViewCharacterListController implements Initializable{
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.getScene().setRoot(root);
         stage.setTitle("Character Sheet of " + characterSelected.getName());
+        stage.show();
+    }
+    
+    public void gotoMenu(ActionEvent event) throws IOException
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/Menu.fxml"));
+        root = loader.load();
+
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.getScene().setRoot(root);
+        stage.setTitle("Character Sheet Explorer");
         stage.show();
     }
 }

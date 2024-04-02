@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateCharacterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CharacterSheetController">
    <children>
       <ImageView fitHeight="620.0" fitWidth="1100.0">
          <image>
@@ -43,66 +43,68 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <Label fx:id="strenghtModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="157.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
+      <TextField fx:id="strenghtModField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="151.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="12.0" />
-         </font></Label>
+         </font>
+      </TextField>
       <TextField fx:id="dexterityField" alignment="CENTER" layoutX="36.0" layoutY="210.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <Label fx:id="dexterityModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="245.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
+      <TextField fx:id="dexterityModField" alignment="CENTER" editable="false" layoutX="36.0" layoutY="239.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </Label>
+      </TextField>
       <TextField fx:id="constitutionField" alignment="CENTER" layoutX="36.0" layoutY="297.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <Label fx:id="constitutionModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="332.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
+      <TextField fx:id="constitutionModField" alignment="CENTER" editable="false" layoutX="36.0" layoutY="326.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </Label>
+      </TextField>
       <TextField fx:id="intelligenceField" alignment="CENTER" layoutX="37.0" layoutY="385.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <Label fx:id="intelligenceModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="419.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
+      <TextField fx:id="intelligenceModField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="414.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </Label>
+      </TextField>
       <TextField fx:id="wisdomField" alignment="CENTER" layoutX="37.0" layoutY="471.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <Label fx:id="wisdomModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="506.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
+      <TextField fx:id="wisdomModField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="500.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </Label>
+      </TextField>
       <TextField fx:id="charismaField" alignment="CENTER" layoutX="37.0" layoutY="559.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </TextField>
-      <Label fx:id="charismaModField" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="594.0" prefHeight="15.0" prefWidth="41.0" textAlignment="CENTER">
+      <TextField fx:id="charismaModField" alignment="CENTER" editable="false" layoutX="37.0" layoutY="588.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
-      </Label>
-      <RadioButton fx:id="inspirationRadio" layoutX="143.0" layoutY="118.0" mnemonicParsing="false" />
-      <TextField fx:id="pbField" alignment="CENTER" layoutX="126.0" layoutY="154.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
       </TextField>
+      <Button fx:id="backBtn" layoutX="487.0" layoutY="622.0" mnemonicParsing="false" onAction="#gotoViewCharacterSheets" text="Back" />
+      <Button fx:id="saveBtn" layoutX="576.0" layoutY="622.0" mnemonicParsing="false" text="Save" />
+      <ScrollPane hbarPolicy="NEVER" layoutX="306.0" layoutY="417.0" prefHeight="191.0" prefWidth="217.0" style="-fx-border-color: transparent;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: transparent; -fx-background-color: transparent;" />
+        </content>
+      </ScrollPane>
       <RadioButton fx:id="strSaveRadio" layoutX="206.0" layoutY="208.0" mnemonicParsing="false">
          <font>
             <Font size="10.0" />
@@ -133,6 +135,52 @@
             <Font size="10.0" />
          </font>
       </RadioButton>
+      <TextField fx:id="pbField" alignment="CENTER" layoutX="126.0" layoutY="154.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <RadioButton fx:id="inspirationRadio" layoutX="143.0" layoutY="118.0" mnemonicParsing="false" />
+      <TextField fx:id="armorClassField" alignment="CENTER" layoutX="320.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="speedField" alignment="CENTER" layoutX="389.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="initiativeField" alignment="CENTER" layoutX="469.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="maxHPField" alignment="CENTER" layoutX="317.0" layoutY="59.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="currentHPField" alignment="CENTER" layoutX="386.0" layoutY="77.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tempHPField" alignment="CENTER" layoutX="317.0" layoutY="97.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="currentHitDiceField" alignment="CENTER" layoutX="469.0" layoutY="61.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="totalHitDiceField" alignment="CENTER" layoutX="469.0" layoutY="97.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font>
+      </TextField>
       <RadioButton fx:id="acrobaticsRadio" layoutX="129.0" layoutY="332.0" mnemonicParsing="false">
          <font>
             <Font size="8.0" />
@@ -223,46 +271,6 @@
             <Font size="8.0" />
          </font>
       </RadioButton>
-      <TextField fx:id="armorClassField" alignment="CENTER" layoutX="320.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="speedField" alignment="CENTER" layoutX="389.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="initiativeField" alignment="CENTER" layoutX="469.0" layoutY="9.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="maxHPField" alignment="CENTER" layoutX="317.0" layoutY="59.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="currentHPField" alignment="CENTER" layoutX="386.0" layoutY="77.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="tempHPField" alignment="CENTER" layoutX="317.0" layoutY="97.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="currentHitDiceField" alignment="CENTER" layoutX="469.0" layoutY="61.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="totalHitDiceField" alignment="CENTER" layoutX="469.0" layoutY="97.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
       <Button layoutX="1034.0" layoutY="369.0" mnemonicParsing="false" onAction="#addNewEquipment" text="+" />
       <Button layoutX="1034.0" layoutY="290.0" mnemonicParsing="false" onAction="#removeSelectedItem" prefHeight="25.0" prefWidth="25.0" text="-" />
       <TableView fx:id="equipmentTable" editable="true" layoutX="665.0" layoutY="222.0" prefHeight="148.0" prefWidth="363.0" style="-fx-background-color: transparent;">
@@ -273,59 +281,6 @@
       </TableView>
       <TextField fx:id="itemNameField" layoutX="679.0" layoutY="371.0" prefHeight="25.0" prefWidth="274.0" promptText="Item name" />
       <TextField fx:id="itemQuantityField" layoutX="961.0" layoutY="370.0" prefHeight="25.0" prefWidth="64.0" promptText="Quantity" />
-      <TextArea fx:id="notesField" layoutX="581.0" layoutY="425.0" prefHeight="185.0" prefWidth="485.0" style="-fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="10.0" />
-         </font>
-      </TextArea>
-      <TextField fx:id="abilitySpellField" alignment="CENTER" layoutX="313.0" layoutY="191.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="spellDCField" alignment="CENTER" layoutX="389.0" layoutY="191.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="attackSpellField" alignment="CENTER" layoutX="466.0" layoutY="191.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="cpField" alignment="CENTER" layoutX="593.0" layoutY="226.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="spField" alignment="CENTER" layoutX="593.0" layoutY="260.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="epField" alignment="CENTER" layoutX="593.0" layoutY="294.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="gpField" alignment="CENTER" layoutX="593.0" layoutY="328.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="ppField" alignment="CENTER" layoutX="593.0" layoutY="360.0" prefHeight="25.0" prefWidth="51.0" style="-fx-border-color: transparent; -fx-background-color: transparent;">
-         <font>
-            <Font name="Arial Bold" size="14.0" />
-         </font>
-      </TextField>
-      <Button fx:id="backBtn" layoutX="487.0" layoutY="622.0" mnemonicParsing="false" onAction="#gotoMenu" text="Back" />
-      <Button fx:id="saveBtn" layoutX="576.0" layoutY="622.0" mnemonicParsing="false" onAction="#saveCharacterSheet" text="Save" />
-      <TableView layoutX="306.0" layoutY="247.0" prefHeight="115.0" prefWidth="215.0">
-        <columns>
-          <TableColumn prefWidth="99.0" text="Attack" />
-          <TableColumn prefWidth="50.0" text="To Hit" />
-            <TableColumn prefWidth="42.0" text="On Hit" />
-        </columns>
-      </TableView>
+      <Label fx:id="idLabel" layoutX="289.0" layoutY="6.0" visible="false" />
    </children>
 </AnchorPane>

@@ -1,0 +1,8 @@
+4;teste;1
+4;aaaaaa;1
+4;Espada Curta;1
+3;Grimório;1
+3;Cajado;1
+2;Espada Longa;1
+2;Foco Arcano;1
+1;a;1
