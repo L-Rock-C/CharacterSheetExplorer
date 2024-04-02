@@ -1,6 +1,0 @@
-1;Rock;Warrior;3;Human;15;17;13;12;10;8
-2;Leo;Bard;3;Halfling;8;15;13;10;12;17
-3;Matheus;Sorcerer;3;Elf;8;12;15;17;13;10
-4;Igor;Wizard;3;Human;8;10;15;17;13;12
-5;Ângelo;Barbarian;3;Half-orc;17;13;15;8;10;12
-6;Hélio;Paladin;3;Human;17;10;15;12;8;13
