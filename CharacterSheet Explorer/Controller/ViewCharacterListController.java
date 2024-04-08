@@ -86,4 +86,11 @@ public class ViewCharacterListController implements Initializable{
         stage.setTitle("Character Sheet Explorer");
         stage.show();
     }
+
+    public void deleteCharacterSheet(ActionEvent event) throws IOException
+    {
+        CharacterSheet characterSelected = (CharacterSheet) charactersList.getSelectionModel().getSelectedItem();
+        fileAccess.deleteCharacter(characterSelected);
+        charactersList.getItems().remove(characterSelected);   
+    }
 }

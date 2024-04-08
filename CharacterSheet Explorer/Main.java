@@ -17,15 +17,26 @@ public class Main extends Application {
         
         primaryStage.setTitle("Character Sheet Explorer"); 
         
-        primaryStage.setScene(new Scene(root, 1100, 650));
+        primaryStage.setScene(new Scene(root, 1100, 650));  
         primaryStage.show();
     }
 }
 
     /*
-     *
-     * - Proposta - CRUD de Ficha de Personagem de RPG com:
-     * -    Nome, classe, raça, antecedente
+     *  CheckList:
+     * -    Vetor ou Matriz - feito
+     * -    Recursividade (se ouver cenário de uso)
+     * -    Generic 
+     * -    Arquivos - feito
+     * -    Pilha (se ouver cenário de uso)
+     * -    Fila
+     * -    Lista Encadeada
+     * -    Alg Busca - feito
+     * -    Alg Ordenação - feito
+     * 
+     * 
+     * - Proposta - CRUD de Ficha de Personagem de RPG (D&D5e) com:
+     * -    Nome, classe, raça, antecedente e etc
      * -    Atributos e perícias
      * -    Lista de ataques, magias e habilidades
      * -    Inventário
@@ -34,13 +45,14 @@ public class Main extends Application {
      * - Done:
      * -    Persistência em arquivo
      * -    Create e Update de CharacterSheet e Equipment 
+     * -    Ordenar arquivos por Id na gravação (implementar algum sorting)
+     * -    Ajeitar as Anotações (quebra de linha)
      * 
      * - ToDo:
      * -    Resto do CRUD
-     * -    Ordenar arquivos por Id na gravação (implementar algum sorting)
      * -    Busca --Binária-- por Id (atualmente linear)
      * -    Implementar algo sobre pilha/fila
-     * -    Ajeitar as Anotações (quebra de linha)
      * -    Estilizar
+     * -    Trocar o sorting de bubble pra quick 
      * 
      */

@@ -5,8 +5,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javafx.collections.ObservableList;
+import java.util.Collections;
 
 public class FileAccess 
 {
@@ -100,11 +99,6 @@ public class FileAccess
             line = bufferedReader.readLine();
             if(line != null)
             {
-				
-    // id - name - characterClass - level - race - background - inspiration - pb - ca - initiative - speed
-    // maxHP - currentHp - tempHp - hitDice - currentHitDice - attributes - skills - abilitySpell - spellDC - spellAttack
-    // equipment - sp - cp - ep - gp - pp - features - notes
-	
                 String[] sheetData = line.split(";");
 				int id = Integer.parseInt(sheetData[0]);
 				String name = sheetData[1];
@@ -165,7 +159,7 @@ public class FileAccess
 				int gp = Integer.parseInt(sheetData[52]);
 				int pp = Integer.parseInt(sheetData[53]);
 
-				String notes = sheetData[54];
+				String notes = sheetData[54].replaceAll("\\+", "\n");
 
 				Attributes attributes = new Attributes(strenght, dexterity, constitution, intelligence, wisdom, charisma, 
 														   strSave, dexSave, conSave, intSave, wisSave, chaSave);
@@ -180,25 +174,17 @@ public class FileAccess
 														  spellDC, spellAttack, cp, sp, ep, gp, pp, notes);
 
                 characterSheets.add(sheet);
-				/* 
-				for(int i = 0; i < sheetData.length; i++)
-				{
-					System.out.print("[" + sheetData[i] + "]");
-				}
-				System.out.println(); 
-				 */
             }
         }
 		return characterSheets;
     }
 
-	public void updateCharacter(String path, CharacterSheet characterSheetUpdate, ObservableList<Item> equipmentListUpdate) throws IOException
+	public void updateCharacter(String path, CharacterSheet characterSheetUpdate, ArrayList<Item> equipmentListUpdate) throws IOException
 	{
 		ArrayList<CharacterSheet> characterSheets = caracterSheetReader(path);
 		String fileCharacterContent = "";
 		for(int i = 0; i < characterSheets.size(); i++)
 		{
-			
 			if(characterSheets.get(i).getId() == characterSheetUpdate.getId())
 			{
 				fileCharacterContent += characterSheetUpdate.toString();
@@ -208,22 +194,79 @@ public class FileAccess
 				fileCharacterContent += characterSheets.get(i).toString();
 			}
 		}
+		fileCharacterContent = fileSorting(fileCharacterContent, "Sheets/sheets.txt");
         WriteFile(path, fileCharacterContent);
 
-		/* ArrayList<Item> equipmentList = equipmentReader("Sheets/equipments.txt");
+		ArrayList<Item> equipmentList = equipmentReader("Sheets/equipments.txt");
 		String fileEquipmentContent = "";
 		for(int i = 0; i < equipmentList.size(); i++)
 		{
-			
-			if(equipmentList.get(i).getId() == characterSheetUpdate.getId())
-			{
-				fileEquipmentContent += equipmentListUpdate.get(i).toString();
-			}
-			else
+			if(equipmentList.get(i).getId() != characterSheetUpdate.getId())
 			{
 				fileEquipmentContent += equipmentList.get(i).toString();
 			}
 		}
-        WriteFile("Sheets/equipments.txt", fileEquipmentContent); */
+		for(int i = 0; i < equipmentListUpdate.size(); i++)
+		{
+			fileEquipmentContent += equipmentListUpdate.get(i).toString();
+		}
+		fileEquipmentContent = fileSorting(fileEquipmentContent, "Sheets/equipments.txt");
+        WriteFile("Sheets/equipments.txt", fileEquipmentContent); 
+	}
+
+	public String fileSorting(String fileContent, String path) throws IOException
+	{
+		String fileSorted = "";
+		ArrayList<String> lines = new ArrayList<>();
+		
+		String[] line = fileContent.split("\n");
+
+		for(int i = 0; i < line.length; i++)
+		{
+			lines.add(line[i] + "\n");
+		}
+
+		for(int i = lines.size(); i > 0; i--)
+		{
+			for(int j = 0; j < i - 1; j++)
+			{
+				if(Integer.parseInt(String.valueOf(lines.get(j).charAt(0))) > Integer.parseInt(String.valueOf(lines.get(j + 1).charAt(0))))
+				{
+					Collections.swap(lines, j, j + 1);
+				}
+			}
+		}
+		for(int j = 0; j < lines.size(); j++)
+		{
+			fileSorted += lines.get(j);
+		}
+
+		return fileSorted;
+	}
+
+	public void deleteCharacter(CharacterSheet characterSheet) throws IOException
+	{
+		ArrayList<CharacterSheet> characterSheets = caracterSheetReader("Sheets/sheets.txt");
+		String newFileContent = "";
+
+		for(int i = 0; i < characterSheets.size(); i++)
+		{
+			if(characterSheets.get(i).getId() != characterSheet.getId())
+			{
+				newFileContent += characterSheets.get(i).toString();
+			}
+		}
+		WriteFile("Sheets/sheets.txt", newFileContent);
+
+		ArrayList<Item> equipmentList = equipmentReader("Sheets/equipments.txt");
+		newFileContent = "";
+		for(int i = 0; i < equipmentList.size(); i++)
+		{
+			if(equipmentList.get(i).getId() != characterSheet.getId())
+			{
+				newFileContent += equipmentList.get(i).toString();
+			}
+		}
+		WriteFile("Sheets/equipments.txt", newFileContent);
 	}
 }

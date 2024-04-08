@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import Model.Attributes;
@@ -10,7 +11,6 @@ import Model.CharacterSheet;
 import Model.FileAccess;
 import Model.Item;
 import Model.Skills;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -299,11 +299,8 @@ public class CharacterSheetController implements Initializable{
                                                           spellDC, attackSpell, cp, sp, ep, gp, pp, notes);
 
         // Update Character
-        ObservableList<Item> equipmentListUpdate = equipmentTable.getItems();
-        for(Item item : equipmentListUpdate)
-        {
-            System.out.println(item.toString());
-        }
+        List<Item> equipmentList = equipmentTable.getItems();
+        ArrayList<Item> equipmentListUpdate = new ArrayList<>(equipmentList);
 
         fileAccess.updateCharacter("Sheets/sheets.txt", newCharacterSheet, equipmentListUpdate);
 

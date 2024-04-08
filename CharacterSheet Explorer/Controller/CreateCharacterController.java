@@ -126,7 +126,6 @@ public class CreateCharacterController implements Initializable{
         equipmentTable.getItems().add(new Item(fileAccess.caracterSheetReader("Sheets/sheets.txt").size() + 1, 
                                                 itemName, itemQuantity));
                                              
-        System.out.println(equipmentTable.getSelectionModel().getSelectedItem());
         itemNameField.setText("");
         itemQuantityField.setText("");
                              

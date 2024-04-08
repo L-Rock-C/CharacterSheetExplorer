@@ -17,7 +17,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="backBtn" layoutX="490.0" layoutY="556.0" mnemonicParsing="false" onAction="#gotoMenu" text="Back" />
-      <Button fx:id="backBtn1" layoutX="567.0" layoutY="556.0" mnemonicParsing="false" onAction="#viewCharacterSheet" text="View" />
+      <Button fx:id="backBtn" layoutX="470.0" layoutY="556.0" mnemonicParsing="false" onAction="#gotoMenu" text="Back" />
+      <Button fx:id="backBtn1" layoutX="588.0" layoutY="556.0" mnemonicParsing="false" onAction="#viewCharacterSheet" text="View" />
+      <Button layoutX="524.0" layoutY="556.0" mnemonicParsing="false" onAction="#deleteCharacterSheet" text="Delete" />
    </children>
 </AnchorPane>

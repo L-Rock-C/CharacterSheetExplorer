@@ -109,11 +109,15 @@ public class CharacterSheet {
 
     public CharacterSheet(){}
 
+    @Override
     public String toString()
     {
         if(notes == "")
         {
             notes = " ";
+        } else
+        {
+            notes = notes.replaceAll("\n", "\\+");
         }
         String characterSheet = id + ";" + name + ";" + characterClass + ";" + xp + ";" + race + ";" + background + ";"
                                 + inspiration + ";" + pb + ";" + armorClass + ";" + initiative + ";" + speed + ";" +

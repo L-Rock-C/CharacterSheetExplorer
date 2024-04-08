@@ -1,8 +1,11 @@
-4;teste;1
-4;aaaaaa;1
-4;Espada Curta;1
-3;Grimório;1
-3;Cajado;1
 2;Espada Longa;1
 2;Foco Arcano;1
-1;a;1
+2;Mochila;1
+3;Grimório;1
+3;Cajado;1
+4;Machadinha;2
+4;Besta Leve;1
+4;Vitore;20
+4;Brunea;1
+4;Kit de ferramentas de ladrão;1
+4;Bordão;1

@@ -265,14 +265,14 @@
       </TextField>
       <Button layoutX="1034.0" layoutY="369.0" mnemonicParsing="false" onAction="#addNewEquipment" text="+" />
       <Button layoutX="1034.0" layoutY="290.0" mnemonicParsing="false" onAction="#removeSelectedItem" prefHeight="25.0" prefWidth="25.0" text="-" />
-      <TableView fx:id="equipmentTable" editable="true" layoutX="665.0" layoutY="222.0" prefHeight="148.0" prefWidth="363.0" style="-fx-background-color: transparent;">
+      <TableView fx:id="equipmentTable" editable="true" layoutX="656.0" layoutY="222.0" prefHeight="148.0" prefWidth="372.0" style="-fx-background-color: transparent;">
         <columns>
           <TableColumn fx:id="itemColumm" prefWidth="288.0" style="-fx-background-color: transparent;" text="Item" />
           <TableColumn fx:id="quantityColumm" prefWidth="74.0" style="-fx-background-color: transparent;" text="Quantity" />
         </columns>
       </TableView>
-      <TextField fx:id="itemNameField" layoutX="679.0" layoutY="371.0" prefHeight="25.0" prefWidth="274.0" promptText="Item name" />
-      <TextField fx:id="itemQuantityField" layoutX="961.0" layoutY="370.0" prefHeight="25.0" prefWidth="64.0" promptText="Quantity" />
+      <TextField fx:id="itemNameField" layoutX="662.0" layoutY="371.0" prefHeight="25.0" prefWidth="274.0" promptText="Item name" />
+      <TextField fx:id="itemQuantityField" layoutX="951.0" layoutY="370.0" prefHeight="25.0" prefWidth="64.0" promptText="Quantity" />
       <TextArea fx:id="notesField" layoutX="581.0" layoutY="425.0" prefHeight="185.0" prefWidth="485.0" style="-fx-background-color: transparent;">
          <font>
             <Font name="Arial Bold" size="10.0" />
