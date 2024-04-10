@@ -2,7 +2,6 @@ package Controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -10,6 +9,7 @@ import Model.Attributes;
 import Model.CharacterSheet;
 import Model.FileAccess;
 import Model.Item;
+import Model.LinkedList;
 import Model.Skills;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+@SuppressWarnings("rawtypes")
 public class CharacterSheetController implements Initializable{
     private Stage stage;
     private Parent root;
@@ -89,7 +90,11 @@ public class CharacterSheetController implements Initializable{
     @FXML private RadioButton sleightOfHandsRadio;
     @FXML private RadioButton stealthRadio;
     @FXML private RadioButton survivalRadio;
-    
+
+    @FXML private TextArea attacksField;
+    @FXML private TextArea featuresField;
+    @FXML private TextArea featuresContentField;
+
     @FXML private TextField abilitySpellField;
     @FXML private TextField spellDCField;
     @FXML private TextField attackSpellField;
@@ -100,11 +105,8 @@ public class CharacterSheetController implements Initializable{
     @FXML private TextField gpField;
     @FXML private TextField ppField;
     
-    @SuppressWarnings("rawtypes")
     @FXML private TableView equipmentTable = new TableView<Item>();
-    @SuppressWarnings("rawtypes")
     @FXML private TableColumn itemColumm = new TableColumn<Item, String>("Item");
-    @SuppressWarnings("rawtypes")
     @FXML private TableColumn quantityColumm = new TableColumn<Item, Integer>("Quantity");
 
     @FXML private TextField itemNameField;
@@ -202,7 +204,7 @@ public class CharacterSheetController implements Initializable{
         quantityColumm.setCellValueFactory(new PropertyValueFactory<Item, String>("quantity"));
 
         try {
-            equipmentTable.getItems().addAll(fileAccess.equipmentReader("Sheets/equipments.txt", characterSheet));
+            equipmentTable.getItems().addAll(fileAccess.equipmentReaderArrayList("Sheets/equipments.txt", characterSheet));
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -213,7 +215,15 @@ public class CharacterSheetController implements Initializable{
         equipmentTable.getColumns().add(quantityColumm);
 
         // Notes
-        notesField.setText(characterSheet.getNotes());
+        notesField.setText(characterSheet.getNotes().replace("¨", "\n"));
+        attacksField.setText(characterSheet.getAttacks().replace("¨", "\n"));
+        featuresField.setText(characterSheet.getFeatures().replace("¨", "\n"));
+        featuresContentField.setText(characterSheet.getFeaturesContent().replace("¨", "\n"));
+        
+        notesField.setWrapText(true);
+        attacksField.setWrapText(true);
+        featuresField.setWrapText(true);
+        featuresContentField.setWrapText(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -281,8 +291,12 @@ public class CharacterSheetController implements Initializable{
         int ep = Integer.parseInt(epField.getText());
         int gp = Integer.parseInt(gpField.getText());
         int pp = Integer.parseInt(ppField.getText());
-
+        
         String notes = notesField.getText();
+        
+        String attacks = attacksField.getText();
+        String features = featuresField.getText();
+        String featuresContent = featuresContentField.getText();
 
         // Save Character
 
@@ -296,13 +310,18 @@ public class CharacterSheetController implements Initializable{
         CharacterSheet newCharacterSheet = new CharacterSheet(id, name, xp, characterClass, race, background, attributes, pb, 
                                                           inspiration, armorClass, initiative, speed, maxHP, currentHP, 
                                                           tempHP, totalHitDice, currentHitDice, skills, spellAbility, 
-                                                          spellDC, attackSpell, cp, sp, ep, gp, pp, notes);
+                                                          spellDC, attackSpell, cp, sp, ep, gp, pp, notes, attacks,
+                                                          features, featuresContent);
 
         // Update Character
         List<Item> equipmentList = equipmentTable.getItems();
-        ArrayList<Item> equipmentListUpdate = new ArrayList<>(equipmentList);
+        LinkedList<Item> equipmentListUpdate = new LinkedList<Item>();
+        for(Item equipment : equipmentList)
+        {
+            equipmentListUpdate.add(equipment);
+        }
 
-        fileAccess.updateCharacter("Sheets/sheets.txt", newCharacterSheet, equipmentListUpdate);
+        fileAccess.updateCharacter(newCharacterSheet, equipmentListUpdate);
 
     }
 

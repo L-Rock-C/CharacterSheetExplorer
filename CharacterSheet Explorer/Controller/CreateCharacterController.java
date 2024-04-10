@@ -9,6 +9,8 @@ import Model.Attributes;
 import Model.CharacterSheet;
 import Model.FileAccess;
 import Model.Item;
+import Model.LinkedList;
+import Model.Queue.QueueNode;
 import Model.Skills;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+@SuppressWarnings("rawtypes")
 public class CreateCharacterController implements Initializable{
     private Stage stage;
     private Parent root;
@@ -90,11 +93,8 @@ public class CreateCharacterController implements Initializable{
     @FXML private TextField gpField;
     @FXML private TextField ppField;
 
-    @SuppressWarnings("rawtypes")
     @FXML private TableView equipmentTable = new TableView<Item>();
-    @SuppressWarnings("rawtypes")
     @FXML private TableColumn itemColumm = new TableColumn<Item, String>("Item");
-    @SuppressWarnings("rawtypes")
     @FXML private TableColumn quantityColumm = new TableColumn<Item, Integer>("Quantity");
 
     @FXML private TextField itemNameField;
@@ -103,6 +103,9 @@ public class CreateCharacterController implements Initializable{
     @FXML private Button addItem;
 
     @FXML private TextArea notesField;
+    @FXML private TextArea attacksField;
+    @FXML private TextArea featuresField;
+    @FXML private TextArea featuresContentField;
 
     FileAccess fileAccess = new FileAccess();
 
@@ -115,6 +118,11 @@ public class CreateCharacterController implements Initializable{
         equipmentTable.getColumns().clear();
         equipmentTable.getColumns().add(itemColumm);
         equipmentTable.getColumns().add(quantityColumm);
+
+        notesField.setWrapText(true);
+        attacksField.setWrapText(true);
+        featuresField.setWrapText(true);
+        featuresContentField.setWrapText(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -123,8 +131,13 @@ public class CreateCharacterController implements Initializable{
         String itemName = itemNameField.getText();
         int itemQuantity = Integer.parseInt(itemQuantityField.getText());
 
-        equipmentTable.getItems().add(new Item(fileAccess.caracterSheetReader("Sheets/sheets.txt").size() + 1, 
-                                                itemName, itemQuantity));
+        ArrayList<CharacterSheet> characterSheets = fileAccess.caracterSheetReaderArrayList("Sheets/sheets.txt");
+        int newId = 0;
+        if(!characterSheets.isEmpty())
+        {
+            newId = characterSheets.get(characterSheets.size()-1).getId() + 1;
+        }
+        equipmentTable.getItems().add(new Item(newId, itemName, itemQuantity));
                                              
         itemNameField.setText("");
         itemQuantityField.setText("");
@@ -140,12 +153,14 @@ public class CreateCharacterController implements Initializable{
     @SuppressWarnings("unchecked")
     public void saveCharacterSheet(ActionEvent event) throws IOException
     {
+        // ---------------- Character Heading ---------------- 
         String name = nameField.getText();
         String characterClass = characterClassField.getText();
         int xp = Integer.parseInt(xpField.getText());
         String race = raceField.getText();
         String background = backgroundField.getText();
-
+        
+        // ---------------- Attributes ---------------- 
         int strenght = Integer.parseInt(strenghtField.getText());
         int dexterity = Integer.parseInt(dexterityField.getText());
         int constitution = Integer.parseInt(constitutionField.getText());
@@ -153,7 +168,7 @@ public class CreateCharacterController implements Initializable{
         int wisdom = Integer.parseInt(wisdomField.getText());
         int charisma = Integer.parseInt(charismaField.getText());
 
-        // Saving Throws
+        // ---------------- Saving Throws ---------------- 
         boolean strSave = strSaveRadio.isSelected();
         boolean dexSave = dexSaveRadio.isSelected();
         boolean conSave = conSaveRadio.isSelected();
@@ -161,6 +176,7 @@ public class CreateCharacterController implements Initializable{
         boolean wisSave = wisSaveRadio.isSelected();
         boolean chaSave = chaSaveRadio.isSelected();
         
+        // ---------------- Character Status ---------------- 
         boolean inspiration = inspirationRadio.isSelected();
         int pb = Integer.parseInt(pbField.getText());
         int armorClass = Integer.parseInt(armorClassField.getText());
@@ -171,7 +187,8 @@ public class CreateCharacterController implements Initializable{
         int tempHP = Integer.parseInt(tempHPField.getText());
         String currentHitDice = currentHitDiceField.getText();
         String totalHitDice = totalHitDiceField.getText();
-
+        
+        // ---------------- Skills ---------------- 
         boolean acrobatics = acrobaticsRadio.isSelected();
         boolean animalHandling = animalHandlingRadio.isSelected();
         boolean arcana = arcanaRadio.isSelected();
@@ -195,6 +212,10 @@ public class CreateCharacterController implements Initializable{
         int spellDC = Integer.parseInt(spellDCField.getText());
         int attackSpell = Integer.parseInt(attackSpellField.getText());
         
+        String attacks = attacksField.getText();
+        String features = featuresField.getText();
+        String featuresContent = featuresContentField.getText();
+
         int cp = Integer.parseInt(cpField.getText());
         int sp = Integer.parseInt(spField.getText());
         int ep = Integer.parseInt(epField.getText());
@@ -203,8 +224,8 @@ public class CreateCharacterController implements Initializable{
 
         String notes = notesField.getText();
 
-        // Save Character
-        ArrayList<CharacterSheet> characterSheets;
+        // ---------------- Save Character ---------------- 
+        LinkedList<CharacterSheet> characterSheets;
         characterSheets = fileAccess.caracterSheetReader("Sheets/sheets.txt");
 
         Attributes attributes = new Attributes(strenght, dexterity, constitution, intelligence, wisdom, charisma, 
@@ -217,23 +238,27 @@ public class CreateCharacterController implements Initializable{
         CharacterSheet newCharacterSheet = new CharacterSheet(name, xp, characterClass, race, background, attributes, pb, 
                                                           inspiration, armorClass, initiative, speed, maxHP, currentHP, 
                                                           tempHP, totalHitDice, currentHitDice, skills, spellAbility, 
-                                                          spellDC, attackSpell, cp, sp, ep, gp, pp, notes);
+                                                          spellDC, attackSpell, cp, sp, ep, gp, pp, notes, attacks,
+                                                          features, featuresContent);
 
         characterSheets.add(newCharacterSheet);
 
         String fileCharacterContent = "";
-        for(CharacterSheet characterSheet : characterSheets)
+        QueueNode p = characterSheets.getHead();
+
+        while(p != null)
         {
-            fileCharacterContent += characterSheet.toString();
+            fileCharacterContent += ((CharacterSheet) p.data).toString();
+            p = p.next;
         }
+
         fileAccess.WriteFile("Sheets/sheets.txt", fileCharacterContent);
         
-        // Save Equipment
-        @SuppressWarnings("rawtypes")
+        // ---------------- Save Equipment ---------------- 
         ObservableList equipmentList = equipmentTable.getItems();
 
         ArrayList<Item> items;
-        items = fileAccess.equipmentReader("Sheets/equipments.txt");
+        items = fileAccess.equipmentReaderArrayList("Sheets/equipments.txt");
 
         for(Item item : items)
         {
@@ -246,9 +271,11 @@ public class CreateCharacterController implements Initializable{
         {
             fileEquipmentContent += equipmentList.get(i).toString();
         }
+		fileEquipmentContent = fileAccess.fileSorting(fileEquipmentContent, "Sheets/equipments.txt");
         fileAccess.WriteFile("Sheets/equipments.txt", fileEquipmentContent);        
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/ViewCharacter.fxml"));
+        // ---------------- Load Character Sheet Created ---------------- 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/ViewCharacterNew.fxml"));
         root = loader.load();
 
         CharacterSheetController characterSheetController = loader.getController();

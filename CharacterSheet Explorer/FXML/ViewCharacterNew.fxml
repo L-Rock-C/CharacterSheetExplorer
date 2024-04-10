@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CreateCharacterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CharacterSheetController">
    <children>
       <ImageView fitHeight="650.0" fitWidth="1100.0" pickOnBounds="true">
          <image>
@@ -341,11 +341,11 @@
             <Font name="Arial Bold" size="10.0" />
          </font>
       </TextArea>
-      <Button fx:id="backBtn" layoutX="483.0" layoutY="621.0" mnemonicParsing="false" onAction="#gotoMenu" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10;" text="Back" textFill="WHITE">
+      <Button fx:id="backBtn" layoutX="483.0" layoutY="621.0" mnemonicParsing="false" onAction="#gotoViewCharacterSheets" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10;" text="Back" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="saveBtn" layoutX="575.0" layoutY="621.0" mnemonicParsing="false" onAction="#saveCharacterSheet" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10;" text="Save" textFill="WHITE">
+      <Button fx:id="saveBtn" layoutX="575.0" layoutY="621.0" mnemonicParsing="false" onAction="#updateCharacterSheet" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10;" text="Save" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font></Button>
@@ -355,5 +355,6 @@
       <RadioButton fx:id="deathSave5" layoutX="479.0" layoutY="148.0" mnemonicParsing="false" />
       <RadioButton fx:id="deathSave4" layoutX="460.0" layoutY="148.0" mnemonicParsing="false" />
       <RadioButton fx:id="deathSave3" layoutX="441.0" layoutY="148.0" mnemonicParsing="false" />
+      <Label fx:id="idField" layoutX="285.0" layoutY="15.0" visible="false" />
    </children>
 </AnchorPane>

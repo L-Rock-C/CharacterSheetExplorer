@@ -1,6 +1,7 @@
 package Model;
 
 import java.io.IOException;
+import Model.Queue.QueueNode;
 
 public class CharacterSheet {
     FileAccess fileAccess = new FileAccess();
@@ -36,13 +37,14 @@ public class CharacterSheet {
     
     private int cp, sp, ep, gp, pp;
 
-    private String notes; 
+    private String notes, attacks, features, featuresContent; 
 
     public CharacterSheet(int id, String name, int xp, String characterClass, String race, String background,
                           Attributes attributes, int pb, boolean inspiration, int armorClass, int initiative,
                           String speed, int maxHitPoints, int currentHitPoints, int tempHitPoits, String maxHitDice,
                           String currentHitDice, Skills skills, String abilitySpell, int spellDC, int spellAttack, 
-                          int cp, int sp, int ep, int gp, int pp, String notes) throws IOException
+                          int cp, int sp, int ep, int gp, int pp, String notes, String attacks, String features,
+                          String featuresContent) throws IOException
     {
         this.id = id;
         this.name = name;
@@ -71,14 +73,25 @@ public class CharacterSheet {
         this.abilitySpell = abilitySpell;
         this.spellDC = spellDC;
         this.spellAttack = spellAttack;
+        this.attacks = attacks;
+        this.features = features;
+        this.featuresContent = featuresContent;
     }
     public CharacterSheet(String name, int xp, String characterClass, String race, String background,
                           Attributes attributes, int pb, boolean inspiration, int armorClass, int initiative,
                           String speed, int maxHitPoints, int currentHitPoints, int tempHitPoits, String maxHitDice,
                           String currentHitDice, Skills skills, String abilitySpell, int spellDC, int spellAttack, int cp, int sp, int ep, int gp, int pp,
-                          String notes) throws IOException
+                          String notes, String attacks, String features, String featuresContent) throws IOException
     {
-        this.id = fileAccess.caracterSheetReader("Sheets/sheets.txt").size() + 1;
+        LinkedList<CharacterSheet> characterSheets = fileAccess.caracterSheetReader("Sheets/sheets.txt");
+        @SuppressWarnings("rawtypes")
+        QueueNode p = characterSheets.getTail();
+        int lastId = 0;
+        if(p != null)
+        {
+            lastId = ((CharacterSheet) p.data).getId() + 1;
+        }
+        this.id = lastId;
         this.name = name;
         this.xp = xp;
         this.characterClass = characterClass;
@@ -105,6 +118,9 @@ public class CharacterSheet {
         this.abilitySpell = abilitySpell;
         this.spellDC = spellDC;
         this.spellAttack = spellAttack;
+        this.attacks = attacks;
+        this.features = features;
+        this.featuresContent = featuresContent;
     }
 
     public CharacterSheet(){}
@@ -117,14 +133,38 @@ public class CharacterSheet {
             notes = " ";
         } else
         {
-            notes = notes.replaceAll("\n", "\\+");
+            notes = notes.replaceAll("\n", "¨");
+        }
+
+        if(attacks == "")
+        {
+            attacks = " ";
+        } else
+        {
+            attacks = attacks.replaceAll("\n", "¨");
+        }
+
+        if(features == "")
+        {
+            features = " ";
+        } else
+        {
+            features = features.replaceAll("\n", "¨");
+        }
+
+        if(featuresContent == "")
+        {
+            featuresContent = " ";
+        } else
+        {
+            featuresContent = featuresContent.replaceAll("\n", "¨");
         }
         String characterSheet = id + ";" + name + ";" + characterClass + ";" + xp + ";" + race + ";" + background + ";"
                                 + inspiration + ";" + pb + ";" + armorClass + ";" + initiative + ";" + speed + ";" +
                                 maxHitPoints + ";" + currentHitPoints + ";" + tempHitPoits + ";" + maxHitDice + ";" +
                                 currentHitDice + ";" + attributes.toString() + ";" + skills.toString() + ";" + abilitySpell
                                 + ";" + spellDC + ";" + spellAttack + ";" + cp + ";" + sp + ";" + ep + ";" + gp 
-                                + ";" + pp + ";" + notes + "\n";
+                                + ";" + pp + ";" + notes + ";" + attacks + ";" + features + ";" + featuresContent + "\n";
 
         return characterSheet;
     }
@@ -306,6 +346,24 @@ public class CharacterSheet {
     }
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+    public String getAttacks() {
+        return attacks;
+    }
+    public void setAttacks(String attacks) {
+        this.attacks = attacks;
+    }
+    public String getFeatures() {
+        return features;
+    }
+    public void setFeatures(String features) {
+        this.features = features;
+    }
+    public String getFeaturesContent() {
+        return featuresContent;
+    }
+    public void setFeaturesContent(String featuresContent) {
+        this.featuresContent = featuresContent;
     }
     
 }

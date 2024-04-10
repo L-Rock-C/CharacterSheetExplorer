@@ -1,11 +1,23 @@
+0;Besta Pesada;1
+0;Armadura de Couro;1
+0;Machadinha;2
+0;Besta Leve;1
+0;Pacote de Aventureiro;1
 2;Espada Longa;1
-2;Foco Arcano;1
-2;Mochila;1
-3;Grimório;1
-3;Cajado;1
-4;Machadinha;2
-4;Besta Leve;1
-4;Vitore;20
+2;Escudo;1
+2;Azagaia;5
+2;Pacote de Aventureiro;1
+2;Cota de Malha;1
+2;Símbolo Sagrado;1
+4;Maça;1
 4;Brunea;1
-4;Kit de ferramentas de ladrão;1
-4;Bordão;1
+4;Besta Leve;1
+4;Virote;20
+4;Pacote de Sacerdote;1
+4;Símbolo Sagrado;1
+5;Anel de Resistência;1
+5;Kit de Disfarce;1
+5;Foco Arcano (Orbe);1
+5;Machadinha;1
+5;Amuleto de Benção da Ordem;1
+5;Kit de Falsificação;1

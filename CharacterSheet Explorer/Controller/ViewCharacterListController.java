@@ -18,21 +18,18 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+@SuppressWarnings("rawtypes")
 public class ViewCharacterListController implements Initializable{
     private Stage stage;
     private Parent root;
+    
     FileAccess fileAccess = new FileAccess();
     ArrayList<CharacterSheet> characterSheets;
 
-    @SuppressWarnings("rawtypes")
     @FXML private TableView charactersList = new TableView<CharacterSheet>();
-    @SuppressWarnings("rawtypes")
     @FXML private TableColumn nameColumm = new TableColumn<CharacterSheet, String>("Name");
-    @SuppressWarnings("rawtypes")
     @FXML private TableColumn characterClassColumm = new TableColumn<CharacterSheet, String>("Class");
-    @SuppressWarnings("rawtypes")
     @FXML private TableColumn xpColumm = new TableColumn<CharacterSheet, Integer>("Experience");
-    @SuppressWarnings("rawtypes")
     @FXML private TableColumn raceColumm = new TableColumn<CharacterSheet, String>("Race");
 
     @SuppressWarnings("unchecked")
@@ -45,9 +42,8 @@ public class ViewCharacterListController implements Initializable{
         raceColumm.setCellValueFactory(new PropertyValueFactory<CharacterSheet, String>("race"));
 
         try {
-            charactersList.getItems().addAll(fileAccess.caracterSheetReader("Sheets/sheets.txt"));
+            charactersList.getItems().addAll(fileAccess.caracterSheetReaderArrayList("Sheets/sheets.txt"));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -64,7 +60,7 @@ public class ViewCharacterListController implements Initializable{
         CharacterSheet characterSelected = (CharacterSheet) charactersList.getSelectionModel().getSelectedItem();
         
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/ViewCharacter.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../FXML/ViewCharacterNew.fxml"));
         root = loader.load();
 
         CharacterSheetController characterSheetController = loader.getController();
